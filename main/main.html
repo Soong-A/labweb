@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiikawa Shop</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+<!-- Page header, containing the navigation bar and other common information -->
+<header>
+    <nav class="navbar">
+        <a href="main.html">Home page</a>
+        <a href="../login/login.html">Login in</a>
+        <a href="../Service/Service.html">Services</a>
+        <a href="../Contact/Contact.html">Connect us</a>
+    </nav>
+</header>
+
+<!-- Carousel section -->
+<section class="carousel-section">
+    <div class="carousel-container">
+        <div class="carousel-slide-wrapper">
+            <div class="carousel-slide-half left-half">
+                <img src="../image/1.png" alt="Carousel Image 1">
+            </div>
+            <div class="carousel-slide-half right-half">
+                <img src="../image/2.png" alt="Carousel Image 2">
+            </div>
+            <div class="carousel-slide-half left-half">
+                <img src="../image/3.png" alt="Carousel Image 3">
+            </div>
+            <div class="carousel-slide-half right-half">
+                <img src="../image/4.png" alt="Carousel Image 4">
+            </div>
+            <div class="carousel-slide-half left-half">
+                <img src="../image/5.png" alt="Carousel Image 5">
+            </div>
+            <div class="carousel-slide-half right-half">
+                <img src="../image/6.png" alt="Carousel Image 6">
+            </div>
+        </div>
+        <!-- More carousel image groups can be added as needed -->
+        <button class="prev-button">&#10094;</button>
+        <button class="next-button">&#10095;</button>
+    </div>
+</section>
+
+<!-- Sidebar area -->
+<aside class="sidebar-container">
+    <div class="sidebar-toggle" id="sidebar-toggle">☰</div>
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="main.html">Home page</a></li>
+            <li><a href="../Cart/Cart.html">Cart</a></li>
+        </ul>
+    </nav>
+</aside>
+
+<!-- Main content area, used to display product information, etc. -->
+<main class="content">
+    <section class="product-section">
+        <div class="product-container">
+            <div class="product-item">
+                <img src="../image/Usagi_main.webp" alt="Product 1" style="width: 100%; height: auto;">
+                <h2>Usagi</h2>
+                <h2 class="money">100 ¥</h2>
+                <div class="button-container">
+                    <button onclick="showPaymentPopup()">buy</button>
+                    <input type="image" src="../image/购物车空.png" alt="Add to Cart" onclick="location.href='#add'"
+                           class="no-margin-right cart-button">
+                    <!-- Note: Here I used input[type="image"] instead of the second button, because it is an image button by itself -->
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="../image/Hachi_main.webp" alt="Product 2" style="width:100%;height:auto;">
+                <h2>Hachi</h2>
+                <h2 class="money">100 ¥</h2>
+                <div class="button-container">
+                    <button onclick="showPaymentPopup()">buy</button>
+                    <input type="image" src="../image/购物车空.png" alt="Add to Cart" onclick="location.href='#add'"
+                           class="no-margin-right cart-button">
+                    <!-- Note: Here I used input[type="image"] instead of the second button, because it is an image button by itself -->
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="../image/Chiikawa_main.webp" alt="Product 3" style="width:100%;height:auto;">
+                <h2>Chiikawa</h2>
+                <h2 class="money">100 ¥</h2>
+                <div class="button-container">
+                    <button onclick="showPaymentPopup()">buy</button>
+                    <input type="image" src="../image/购物车空.png" alt="Add to Cart" onclick="location.href='#add'"
+                           class="no-margin-right cart-button">
+                    <!-- Note: Here I used input[type="image"] instead of the second button, because it is an image button by itself -->
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="../image/Momonga_main.webp" alt="Product 4" style="width:100%;height:auto;">
+                <h2>momo</h2>
+                <h2 class="money">100 ¥</h2>
+                <div class="button-container">
+                    <button onclick="showPaymentPopup()">buy</button>
+                    <input type="image" src="../image/购物车空.png" alt="Add to Cart" onclick="location.href='#add'"
+                           class="no-margin-right cart-button">
+                    <!-- Note: Here I used input[type="image"] instead of the second button, because it is an image button by itself -->
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="../image/3F%253F.webp" alt="Product 5" style="width:100%;height:auto;">
+                <h2>ラッコ</h2>
+                <h2 class="money">100 ¥</h2>
+                <div class="button-container">
+                    <button onclick="showPaymentPopup()">buy</button>
+                    <input type="image" src="../image/购物车空.png" alt="Add to Cart" onclick="location.href='#add'"
+                           class="no-margin-right cart-button">
+                    <!-- Note: Here I used input[type="image"] instead of the second button, because it is an image button by itself -->
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="../image/Kurimanju_main.webp" alt="Product 6" style="width:100%;height:auto;">
+                <h2>くりまんじゅう</h2>
+                <h2 class="money">100 ¥</h2>
+                <div class="button-container">
+                    <button onclick="showPaymentPopup()">buy</button>
+                    <input type="image" src="../image/购物车空.png" alt="Add to Cart" onclick="location.href='#add'"
+                           class="no-margin-right cart-button">
+                    <!-- Note: Here I used input[type="image"] instead of the second button, because it is an image button by itself -->
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="../image/3F.webp" alt="Product 7" style="width:100%;height:auto;">
+                <h2>シーサー</h2>
+                <h2 class="money">100 ¥</h2>
+                <div class="button-container">
+                    <button onclick="showPaymentPopup()">buy</button>
+                    <input type="image" src="../image/购物车空.png" alt="Add to Cart" onclick="location.href='#add'"
+                           class="no-margin-right cart-button">
+                    <!-- Note: Here I used input[type="image"] instead of the second button, because it is an image button by itself -->
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="../image/cart7.jpg" alt="Product 8" style="width:100%;height:auto;">
+                <h2>Usagi</h2>
+                <h2 class="money">100 ¥</h2>
+                <div class="button-container">
+                    <button onclick="showPaymentPopup()">buy</button>
+                    <input type="image" src="../image/购物车空.png" alt="Add to Cart" onclick="location.href='#add'"
+                           class="no-margin-right cart-button">
+                    <!-- Note: Here I used input[type="image"] instead of the second button, because it is an image button by itself -->
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="../image/cart6.jpg" alt="Product 9" style="width: 100%; height: auto;">
+                <h2>Three of all</h2>
+                <h2 class="money">100 ¥</h></div>
+            <div class="button-container">
+                <button onclick="showPaymentPopup()">buy</button>
+                <input type="image" src="../image/购物车空.png" alt="Add to Cart" onclick="location.href='#add'"
+                       class="no-margin-right cart-button"> <!-- Class name added for easy CSS positioning -->
+            </div>
+        </div>
+        <!-- More products can be added as needed -->
+        </div>
+    </section>
+</main>
+
+<!-- Page footer, where copyright information, etc. can be placed (currently there's no specific content here, it can be added later) -->
+<footer class="footer">
+    &copy; 2024 202332110105 SYR. All rights reserved.
+</footer>
+
+<script src="main.js"></script>
+</body>
+
+</html>

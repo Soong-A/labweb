@@ -1,0 +1,332 @@
+/* General style settings */
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-size: 16px; /* Set the base font size of the root element for easier calculation when using rem units later */
+    background-color: #f8f8f8; /* Add a light gray background color to the main body of the page to make it look softer. This can be adjusted according to requirements. */
+    background-repeat: no-repeat; /* Prevent the image from repeating and tiling, ensuring only one complete image covers the page. */
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px; /* Add some space below the heading to make the layout clearer. */
+    color: #333; /* Set the heading color to a dark gray for better clarity and readability. */
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.6; /* Increase the line height to make the paragraph text easier to read. */
+    color: #666; /* Set the paragraph text to a slightly lighter gray. */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../image/contactbackground.jpeg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.9); /* Slightly reduce the brightness of the background image to make it more harmonious with the content. The value can be adjusted as needed. */
+    z-index: -1;
+}
+
+/* Navigation bar style */
+.navbar {
+    display: flex;
+    background-color: lightpink;
+    padding: 10px 20px;
+    justify-content: flex-end;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Allow the navigation items to wrap to the next line on small screens. */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition effect for changing the background and text colors when the mouse hovers. */
+}
+
+.navbar a:hover {
+    background-color: #A9B4FF;
+    color: #6295FE;
+}
+
+/* Sidebar toggle button style */
+.sidebar-toggle {
+    position: fixed;
+    top: 15px; /* Fine-tune the position of the button to make it look more harmonious. */
+    left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    background-color: #fff;
+    border-radius: 40%;
+    padding: 10px; /* Increase the padding a bit to make the button look fuller. */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease; /* Add a scaling transition effect when clicked. */
+}
+
+.sidebar-toggle:hover {
+    transform: scale(1.1); /* Slightly enlarge the button when the mouse hovers to enhance the interactivity. */
+}
+
+/* Sidebar style */
+.sidebar {
+    position: fixed;
+    top: 200px;
+    left: -250px;
+    width: 150px;
+    height: auto;
+    background-color: #DA2864;
+    color: white;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 0 10px 10px 0;
+    transition: left 0.3s ease;
+    overflow-y: auto; /* Make the sidebar scrollable when its content exceeds its height. */
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 40%; /* Further adjust the width percentage on small screens for a more appropriate display effect. */
+        left: -100%;
+        height: auto;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 40%; /* Make the sidebar take up the full screen width on even smaller screens. */
+    }
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a light-colored divider line below each list item to enhance the distinction. */
+}
+
+.sidebar li:last-child {
+    border-bottom: none; /* Remove the bottom border for the last list item. */
+}
+
+.sidebar li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar li a:hover {
+    background-color: #EC6091;
+}
+
+/* Main content area style */
+.content {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Add a semi-transparent white background to the content area to make it stand out more on the background image. */
+    border-radius: 10px; /* Add rounded corners to the content area for a more aesthetic look. */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a light shadow to the content area to enhance the layering effect. */
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar-open.content {
+    margin-left: 250px;
+}
+
+@media (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+
+    .sidebar-open.content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 10px; /* Appropriately reduce the padding on even smaller screens. */
+    }
+}
+
+/* General style for the service section */
+.service-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    display: flex;
+    align-items: center; /* Vertically center-align the content within the service section. */
+    transition: transform 0.3s ease; /* Add a scaling transition effect when the mouse hovers. */
+}
+
+.service-section:hover {
+    transform: scale(1.02); /* Slightly enlarge the service section when the mouse hovers to enhance the interactivity. */
+}
+
+.service-section img.service-icon {
+    width: 80px; /* Set the width of the service icon to 80px for a more harmonious look. */
+    height: auto;
+    margin-right: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow to the icon to make it look more three-dimensional. */
+}
+
+.service-section.service-details {
+    flex: 1; /* Make the service details section take up the remaining space and expand automatically. */
+}
+
+@media (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+
+    .sidebar-open.content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 10px; /* Appropriately reduce the padding on even smaller screens. */
+    }
+}
+
+/* Style for the customer review section */
+.customer-review-section {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.customer-review-section h2 {
+    text-align: center; /* Center-align the title of the review section. */
+}
+
+.customer-review {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #eee; /* Add a light-colored divider line below each review item. */
+}
+
+.customer-review:last-child {
+    border-bottom: none; /* Remove the bottom border for the last review item. */
+}
+
+.customer-review img.customer-avatar {
+    width: 60px; /* Set the width of the customer avatar to 60px for a more appropriate look. */
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow to the avatar. */
+}
+
+blockquote {
+    margin: 0;
+    font-style: italic; /* Set the quoted text to italic for a more conventional style. */
+    color: #666;
+}
+
+cite {
+    display: block;
+    margin-top: 5px;
+    font-style: normal; /* Restore the normal style for the source of the quote. */
+    font-weight: bold; /* Make the source of the quote bold to make it stand out more. */
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+    /*   .sidebar {*/
+    /*        display: none;*/
+    /*    }*/
+
+    .content {
+        margin-left: 0;
+    }
+
+    .service-section {
+        flex-direction: column; /* Vertically arrange the icon and details within the service section on small screens. */
+        text-align: center; /* Center-align the text content. */
+    }
+
+    .service-section img.service-icon {
+        margin-bottom: 10px; /* Add some space below the icon. */
+        margin-right: 0;
+    }
+
+    .customer-review {
+        flex-direction: column; /* Vertically arrange the avatar and text within the customer review item on small screens. */
+        text-align: center; /* Center-align the text content. */
+    }
+
+    .customer-review img.customer-avatar {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+}
+
+.footer {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow to the footer. */
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    padding: 10px 0;
+    background-color: lightpink;
+    position: relative;
+}
+
+.footer span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

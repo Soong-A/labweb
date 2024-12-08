@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" width="device-width" initial-scale="1.0">
+    <title>Chiikawa Cart</title>
+    <link rel="stylesheet" href="Cart.css">
+</head>
+
+<body>
+<!-- The header of the page contains the website logo and navigation bar -->
+<header class="header">
+    <div class="navbar">
+        <a href="../main/main.html">Home page</a>
+        <a href="../login/login.html">Login in</a>
+        <a href="../Service/Service.html">Services</a>
+        <a href="../Contact/Contact.html">Connect us</a>
+    </div>
+</header>
+
+<!-- The main content area, laid out using Flexbox, is divided into a sidebar, a special product bar, a product listing area, and a checkout button area -->
+<main class="main-content">
+    <!-- 左侧导航栏 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-toggle" id="sidebar-toggle">☰</div>
+        <ul>
+            <li><a href="../main/main.html">Home page</a></li>
+            <li><a href="Cart.html">Cart</a></li>
+        </ul>
+    </aside>
+
+    <!-- Special section -->
+    <section class="special-products">
+        <h2>Christmas special</h2>
+        <article class="special-product-item">
+            <img src="../image/cartspecial1.jpg" alt="Special Product 1">
+            <div class="product-details">
+                <h3>Chiikawa</h3>
+                <p>Price: $29.99</p>
+                <button class="remove-cart-button">Remove goods</button>
+            </div>
+        </article>
+        <article class="special-product-item">
+            <img src="../image/cartspecail2.jpg" alt="Special Product 2">
+            <div class="product-details">
+                <h3>Hachi</h3>
+                <p>Price: $39.99</p>
+                <button class="remove-cart-button">Remove goods</button>
+            </div>
+        </article>
+        <article class="special-product-item">
+            <img src="../image/cartspecail3.jpg" alt="Special Product 2">
+            <div class="product-details">
+                <h3>Usagi</h3>
+                <p>Price: $39.99</p>
+                <button class="remove-cart-button">Remove goods</button>
+            </div>
+        </article>
+
+    </section>
+
+    <!-- Shopping cart item list area -->
+    <section class="cart-section">
+        <div class="cart-section-title">
+            <h2>Welcome to Chiikawa Shopping Cart, happy shopping!</h2>
+        </div>
+        <!-- Simulate shopping cart item -->
+        <article class="product-item">
+            <img src="../image/cart1.jpg" alt="product1">
+            <div class="product-details">
+                <h3>シーサー</h3>
+                <p>Price: $19.99</p>
+                <button class="remove-button">Remove goods</button>
+            </div>
+        </article>
+        <article class="product-item">
+            <img src="../image/cart2.jpg" alt="product1">
+            <div class="product-details">
+                <h3>カニ</h3>
+                <p>Price: $19.99</p>
+                <button class="remove-button">Remove goods</button>
+            </div>
+        </article>
+        <article class="product-item">
+            <img src="../image/cart3.jpg" alt="product1">
+            <div class="product-details">
+                <h3>カニ</h3>
+                <p>Price: $19.99</p>
+                <button class="remove-button">Remove goods</button>
+            </div>
+        </article>
+        <article class="product-item">
+            <img src="../image/cart4.jpg" alt="product1">
+            <div class="product-details">
+                <h3>Chiikawa Hachi and Usagi</h3>
+                <p>Price: $19.99</p>
+                <button class="remove-button">Remove goods</button>
+            </div>
+        </article>
+        <article class="product-item">
+            <img src="../image/cart5.jpg" alt="product1">
+            <div class="product-details">
+                <h3>Chiikawa Hachi and Usagi</h3>
+                <p>Price: $19.99</p>
+                <button class="remove-button">Remove goods</button>
+            </div>
+        </article>
+        </article>
+        <article class="product-item">
+            <img src="../image/cart6.jpg" alt="product1">
+            <div class="product-details">
+                <h3>Chiikawa Hachi and Usagi</h3>
+                <p>Price: $19.99</p>
+                <button class="remove-button">Remove goods</button>
+            </div>
+        </article>
+    </section>
+
+    <!-- The settlement button area is placed in the lower right corner-->
+    <section class="checkout-section">
+        <button class="checkout-button">Settle an account</button>
+    </section>
+</main>
+
+
+<!-- Copyright information at bottom of page -->
+<footer class="footer">
+    &copy; 2024 202332110105 SYR. All rights reserved.
+</footer>
+
+<script src="Cart.js"></script>
+</body>
+
+</html>

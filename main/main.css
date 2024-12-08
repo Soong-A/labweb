@@ -1,0 +1,335 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-width: 320px; /* Set the minimum width to ensure that the basic content can be displayed reasonably even on small screens */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../image/background3.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Add this property to fix the background image */
+    /* filter: blur(5px); */
+    z-index: -1; /* Place the pseudo-element under the content to avoid covering the content */
+}
+
+.navbar {
+    display: flex;
+    background-color: lightpink;
+    padding: 10px 20px;
+    justify-content: flex-end;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Allow the navigation items to wrap to the next line on small screens */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #A9B4FF;
+    color: #6295FE;
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    background-color: #fff;
+    border-radius: 40%;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.sidebar-toggle:hover {
+    transform: scale(1.1); /* Slightly enlarge the button when the mouse hovers to enhance the interactivity */
+}
+
+.sidebar {
+    position: fixed;
+    top: 200px;
+    left: -250px;
+    height: auto;
+    width: 150px;
+    background-color: #DA2864;
+    color: white;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 0 10px 10px 0;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    z-index: 999; /* Adjust the z-index appropriately to ensure a reasonable layer relationship on different screens */
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 40%; /* Make the sidebar take up the full screen width on small screens */
+        left: -100%; /* Initially hide it outside the left side of the screen */
+        height: auto; /* The height adjusts automatically according to the content */
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+}
+
+.sidebar.open {
+    left: 0; /* When expanded, its position is within the screen */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0; /* Remove the padding */
+}
+
+.sidebar li {
+    padding: 15px; /* Padding inside the list item */
+    text-align: center; /* Center-align the text */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar li:last-child {
+    border-bottom: none; /* Remove the bottom border for the last list item */
+}
+
+.sidebar li a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove the underline */
+    display: block; /* Display as a block element */
+    transition: background-color 0.3s ease;
+}
+
+.sidebar li a:hover {
+    background-color: #EC6091; /* Background color when the mouse hovers */
+}
+
+.content {
+    margin-left: 20px;
+    transition: margin-left 0.3s ease;
+    position: relative;
+    z-index: 1;
+    padding: 10px; /* Add padding to avoid the content sticking to the edge on small screens */
+}
+
+.sidebar-open.content {
+    margin-left: 250px;
+}
+
+@media (max-width: 768px) {
+    .sidebar-open.content {
+        margin-left: 0; /* When the sidebar is expanded on small screens, the content area no longer shifts */
+    }
+}
+
+.button-container {
+    text-align: center; /* Optional: If you want to center the buttons */
+}
+
+.button-container button,
+.button-container input[type="image"] {
+    display: inline-block;
+    vertical-align: middle; /* Ensure that the image buttons and text buttons are vertically aligned */
+    margin-right: 10px; /* Set the distance between buttons. You can adjust this value according to your needs */
+}
+
+.button-container input[type="image"] {
+    /* No additional styles are needed here to remove the border and background because input[type="image"] has no these by default */
+    width: 40px; /* Image width */
+    height: auto; /* Image height adjusts automatically */
+}
+
+/* If you want the last button to have no right margin, you can add a class and set margin-right to 0 */
+.button-container.no-margin-right {
+    margin-right: 0;
+}
+
+/* Define an animation named'shake' to achieve a quick and small horizontal movement, simulating a shaking effect */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* When an element with the class 'cart-button' is clicked (:active pseudo-class), apply the'shake' animation, with a duration of 0.5 seconds, linear transition, and execute the animation once */
+.cart-button:active {
+    animation: shake 0.5s linear 1;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.product-item {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: calc(30% - 40px);
+    margin: 10px 10px 10px 20px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .product-item {
+        width: calc(45% - 40px); /* On small screens, appropriately increase the width percentage of a single product, for example, change to a two-column layout */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item {
+        width: 100%; /* On even smaller screens, change to a single-column layout where each product takes up a full row */
+        margin-left: 0; /* Remove the additional left margin */
+    }
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-item button {
+    background-color: #6295FE;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.product-item button:hover {
+    background-color: #A9B4FF;
+}
+
+.money {
+    color: black;
+    text-align: right;
+}
+
+/* Carousel container style */
+.carousel-container {
+    width: 100%;
+    overflow: hidden; /* Hide the overflowing parts to achieve the scrolling effect */
+    position: relative; /* Prepare for positioning the internal elements */
+    margin-bottom: 20px; /* Leave a certain distance from the content below. You can adjust it according to the actual situation */
+    margin-top: 20px;
+}
+
+/* Outer wrapper container style for each group of carousel images */
+.carousel-slide-wrapper {
+    display: flex; /* Use flex layout to arrange the elements */
+    width: 100%;
+    justify-content: space-around; /* Change the justify-content property to space-around to make the space between images larger and evenly distributed */
+    flex-wrap: nowrap; /* Do not wrap, keep the images displayed in one line */
+}
+
+/* General style for the left and right half of the images */
+.carousel-slide-half {
+    width: 40%; /* Appropriately reduce the width percentage of the images to make more space for the intervals. You can fine-tune it according to the actual situation */
+    overflow: hidden; /* Prevent the overflowing parts of the images from being displayed */
+}
+
+@media (max-width: 768px) {
+    .carousel-slide-half.left-half,
+    .carousel-slide-half.right-half {
+        display: none; /* Hide the left and right half layout */
+    }
+    .carousel-slide-wrapper {
+        flex-wrap: nowrap; /* On small screens, force no wrapping to facilitate single-image carousel */
+    }
+    .carousel-slide-wrapper > div {
+        width: 100%; /* Make each image container take up the full width of a row */
+    }
+}
+
+/* Style for the left image */
+.left-half {
+    text-align: right; /* Align the image to the right to closely join with the right image */
+}
+
+/* Style for the right image */
+.right-half {
+    text-align: left; /* Align the image to the left to closely join with the left image */
+}
+
+.carousel-slide-half img {
+    width: 100%;
+    height: auto;
+    display: inline-block; /* Display the image as an inline-block element for easy horizontal arrangement and alignment */
+    border-radius: 10px; /* Set the four corners of the image to be rounded. The radius is set to 10px here. You can adjust it according to your needs */
+    max-width: 400px; /* Limit the maximum width of the image to make it smaller. You can adjust the value according to the desired effect */
+    max-height: 400px; /* Limit the maximum height of the image to keep the aspect ratio when scaling. You can adjust it according to your needs */
+    border: 2px solid black;
+}
+
+/* Style for the navigation buttons */
+.prev-button,
+.next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.prev-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
+
+.footer {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow to the footer */
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    padding: 10px 0;
+    background-color: lightpink;
+    position: relative;
+}
+
+.footer span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
