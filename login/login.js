@@ -117,6 +117,6 @@ registrationForm.addEventListener('submit', function (e) {
     if (isUsernameValid && isEmailValid && isPasswordValid && isConfirmPasswordValid && isGenderValid) {
         // Add the redirect code here. Originally, it was an alert showing the login was successful. Now, it redirects to a page.
         alert("SUCCESS");
-        window.location.href = '../main/index.html';
+        window.location.href = '../index.html';
     }
 });
