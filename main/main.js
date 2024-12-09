@@ -140,13 +140,13 @@ function showPaymentPopup() {
     // Define an array containing paths and related configurations for two QR code images (example part, you can adjust as needed).
     const qrCodeImages = [
         {
-            src: 'https://soong-a.github.io/labweb.github.io/image/wechat.png',
+            src: getAbsoluteImagePath('image/wechat.png'),
             width: '300px',
             height: '380px',
             alt: 'Payment QR Code'
         },
         {
-            src: 'https://soong-a.github.io/labweb.github.io/image/wepay.png',
+            src: getAbsoluteImagePath('image/wepay.png'),
             width: '300px',
             height: '380px',
             alt: 'Payment QR Code'
