@@ -138,20 +138,25 @@ function showPaymentPopup() {
     paymentInfo.textContent = 'Please pay 100 ¥';
 
     // Define an array containing paths and related configurations for two QR code images (example part, you can adjust as needed).
-    const qrCodeImages = [
-        {
-            src: getAbsoluteImagePath('image/wechat.png'),
-            width: '300px',
-            height: '380px',
-            alt: 'Payment QR Code'
-        },
-        {
-            src: getAbsoluteImagePath('image/wepay.png'),
-            width: '300px',
-            height: '380px',
-            alt: 'Payment QR Code'
-        }
-    ];
+ function getAbsoluteImagePath(imageRelativePath) {
+    const baseUrl = window.location.origin + window.location.pathname;
+    return baseUrl.substring(0, baseUrl.lastIndexOf('/') + 1) + imageRelativePath;
+}
+
+const qrCodeImages = [
+    {
+        src: getAbsoluteImagePath('image/wechat.png'),
+        width: '300px',
+        height: '380px',
+        alt: 'Payment QR Code'
+    },
+    {
+        src: getAbsoluteImagePath('image/wepay.png'),
+        width: '300px',
+        height: '380px',
+        alt: 'Payment QR Code'
+    }
+];
     // Logic to randomly generate an index to select image configuration information, etc. (example part, you can adjust as needed).
     const randomIndex = Math.floor(Math.random() * qrCodeImages.length);
     const selectedQrCodeConfig = qrCodeImages[randomIndex];
