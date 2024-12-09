@@ -140,13 +140,13 @@ function showPaymentPopup() {
     // Define an array containing paths and related configurations for two QR code images (example part, you can adjust as needed).
     const qrCodeImages = [
         {
-            src: '../image/wechat.jpg',
+            src: '../image/wechat.png',
             width: '300px',
             height: '380px',
             alt: 'Payment QR Code'
         },
         {
-            src: '../image/wepay.jpg',
+            src: '../image/wepay.png',
             width: '300px',
             height: '380px',
             alt: 'Payment QR Code'
