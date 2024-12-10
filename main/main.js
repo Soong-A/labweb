@@ -114,8 +114,8 @@ window.addEventListener('resize', () => {
 window.addEventListener('load', initCarousel);
 
 // Function to show the payment popup.
-function showPaymentPopup() {
-    // Create a modal box (the outer container simulating the payment popup).
+function showPaymentPopup(price) {
+    // Create a modal box (the outer container that simulates the payment popup).
     const modal = document.createElement('div');
     modal.style.position = 'fixed';
     modal.style.zIndex = '9999';
@@ -134,29 +134,32 @@ function showPaymentPopup() {
     popupContent.style.padding = '20px';
     popupContent.style.borderRadius = '5px';
 
+    // Create a <p> element to display the payment information.
+    // Use the passed-in price parameter to set the text content of the payment information.
     const paymentInfo = document.createElement('p');
-    paymentInfo.textContent = 'Please pay 100 ¥';
+    paymentInfo.textContent = `Please pay ${price} ¥`;
 
     // Define an array containing paths and related configurations for two QR code images (example part, you can adjust as needed).
- function getAbsoluteImagePath(imageRelativePath) {
-    const baseUrl = window.location.origin + window.location.pathname;
-    return baseUrl.substring(0, baseUrl.lastIndexOf('/') + 1) + imageRelativePath;
-}
-
-const qrCodeImages = [
-    {
-        src: getAbsoluteImagePath('image/wechat.png'),
-        width: '300px',
-        height: '380px',
-        alt: 'Payment QR Code'
-    },
-    {
-        src: getAbsoluteImagePath('image/wepay.png'),
-        width: '300px',
-        height: '380px',
-        alt: 'Payment QR Code'
+    function getAbsoluteImagePath(imageRelativePath) {
+        const baseUrl = window.location.origin + window.location.pathname;
+        return baseUrl.substring(0, baseUrl.lastIndexOf('/') + 1) + imageRelativePath;
     }
-];
+
+    const qrCodeImages = [
+        {
+            src: getAbsoluteImagePath('image/wechat.png'),
+            width: '300px',
+            height: '380px',
+            alt: 'Payment QR Code'
+        },
+        {
+            src: getAbsoluteImagePath('image/wepay.png'),
+            width: '300px',
+            height: '380px',
+            alt: 'Payment QR Code'
+        }
+    ];
+
     // Logic to randomly generate an index to select image configuration information, etc. (example part, you can adjust as needed).
     const randomIndex = Math.floor(Math.random() * qrCodeImages.length);
     const selectedQrCodeConfig = qrCodeImages[randomIndex];
@@ -166,27 +169,72 @@ const qrCodeImages = [
     qrCodeImg.style.height = selectedQrCodeConfig.height;
     qrCodeImg.alt = selectedQrCodeConfig.alt;
 
+    // Create a "Cancel" button.
     const closeButton = document.createElement('button');
     closeButton.textContent = 'Cancel';
-    closeButton.style.marginRight = '10px'; // Add right margin to the cancel button to separate it from the confirm payment button.
+    // 设置取消按钮的样式，包括背景色、文字颜色、内边距、边框、圆角、鼠标悬停效果等
+    closeButton.style.cssText = `
+        background-color:'#6295FE';
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+        transition: background-color 0.3s ease;
+    `;
     closeButton.onclick = function () {
+        // When the "Cancel" button is clicked, remove the modal (the entire payment popup) from the document body.
         document.body.removeChild(modal);
     };
+    closeButton.addEventListener('mouseenter', function () {
+        // 鼠标悬停时加深背景色，实现简单的交互效果
+        this.style.backgroundColor = '#A9B4FF';
+    });
+    closeButton.addEventListener('mouseleave', function () {
+        // 鼠标离开时恢复原来的背景色
+        this.style.backgroundColor =  '#6295FE';
+    });
 
+    // Create a "Confirm payment" button.
     const confirmButton = document.createElement('button');
     confirmButton.textContent = 'Confirm payment';
-    confirmButton.style.marginLeft = '10px'; // Add left margin to the confirm payment button to separate it from the cancel button.
+    // 设置确认支付按钮的样式，与取消按钮类似但颜色不同，以作区分
+    confirmButton.style.cssText = `
+        background-color: lightpink;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: background-color 0.3s ease;
+    `;
     confirmButton.onclick = function () {
-        // Here you can add the actual payment logic, such as sending a request to the server, etc. For now, just a simple message is shown.
+        // Here you can add the actual payment logic, such as sending a request to the server, etc.
+        // For now, just a simple message is shown.
         alert('The simulation payment is successful, and in a real application, it needs to interface with the payment platform!');
         document.body.removeChild(modal);
     };
+    confirmButton.addEventListener('mouseenter', function () {
+        // 鼠标悬停时加深背景色，实现简单的交互效果
+        this.style.backgroundColor = '#EC6091';
+    });
+    confirmButton.addEventListener('mouseleave', function () {
+        // 鼠标离开时恢复原来的背景色
+        this.style.backgroundColor = lightpink;
+    });
 
-    // Add elements to the popup content area one by one.
+    // 调整元素添加顺序，先添加支付信息，再添加二维码图片，最后添加按钮，使得按钮在图片下方显示
     popupContent.appendChild(paymentInfo);
     popupContent.appendChild(qrCodeImg);
-    popupContent.appendChild(closeButton);
-    popupContent.appendChild(confirmButton);
+    const buttonContainer = document.createElement('div');
+    buttonContainer.style.display = 'flex';
+    buttonContainer.style.justifyContent = 'space-between';
+    buttonContainer.appendChild(closeButton);
+    buttonContainer.appendChild(confirmButton);
+    popupContent.appendChild(buttonContainer);
+
     modal.appendChild(popupContent);
 
     document.body.appendChild(modal);

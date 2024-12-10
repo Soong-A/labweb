@@ -67,7 +67,7 @@ removeButtons.forEach((button) => {
                 .catch(error => {
                     console.error('Network request error:', error);
                     // Show an alert message to the user indicating that there is a problem with the network and they should try again later.
-                    alert('The network is not stable, the request to remove the product failed to send, please check the network and try again later.');
+                    // alert('The network is not stable, the request to remove the product failed to send, please check the network and try again later.');
                 });
         }
     });
@@ -107,7 +107,7 @@ removeCartButtons.forEach((button) => {
                 })
                 .catch(error => {
                     console.error('Network request error:', error);
-                    alert('The network is not stable, the request to remove the product failed to send, please check the network and try again later.');
+                    // alert('The network is not stable, the request to remove the product failed to send, please check the network and try again later.');
                 });
         }
     });
