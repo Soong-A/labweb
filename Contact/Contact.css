@@ -285,7 +285,7 @@ body::before {
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     flex: 1;
-    height: 400px;
+    height: 500px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -367,4 +367,30 @@ body::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.contact-hours-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.contact-hours-table th,
+.contact-hours-table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.contact-hours-table th {
+    background-color: lightpink;
+    font-weight: bold;
+}
+
+.contact-hours-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.contact-hours-table tr:hover {
+    background-color: #eaeaea;
 }

@@ -145,7 +145,7 @@ body::before {
 .button-container input[type="image"] {
     display: inline-block;
     vertical-align: middle; /* Ensure that the image buttons and text buttons are vertically aligned */
-    margin-right: 10px; /* Set the distance between buttons. You can adjust this value according to your needs */
+    margin-right: 20px; /* Set the distance between buttons. You can adjust this value according to your needs */
 }
 
 .button-container input[type="image"] {
@@ -210,6 +210,7 @@ body::before {
 }
 
 .product-item img {
+    border-radius: 5px;
     max-width: 100%;
     height: auto;
 }
